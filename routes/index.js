@@ -1,0 +1,12 @@
+const express = require("express");
+const app = express();
+app.use(require("./sign"));
+app.use(require("./users"));
+app.use(require("./events"));
+app.use(require("./grades"));
+app.use(require("./units"));
+app.use(require("./exceptions"));
+app.use(require("./classes"));
+app.use(require("./files"));
+app.use(require("./establishments"));
+module.exports = app;
