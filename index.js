@@ -1,0 +1,15 @@
+require("dotenv").config();
+require("./config");
+require("./database");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const express = require("express");
+const fileUpload = require("express-fileupload");
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(cors({ origin: true }));
+app.use(fileUpload({ createParentPath: true }));
+app.use(require("./routes"));
+app.listen(process.env.PORT, () => console.log("Port:", process.env.PORT));
